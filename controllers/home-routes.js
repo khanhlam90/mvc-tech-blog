@@ -99,8 +99,8 @@ router.get('/posts-comments', (req, res) => {
             },
             attributes: [
                 'id',
-                'content',
                 'title',
+                'content',
                 'created_at'
             ],
             include: [{
