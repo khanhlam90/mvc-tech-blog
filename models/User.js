@@ -1,7 +1,7 @@
 //import the elements that we'll need to build the Post model
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
 
 // create our User model
