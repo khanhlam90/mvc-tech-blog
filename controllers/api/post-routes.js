@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 // get all posts
@@ -44,8 +44,8 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'post_url',
             'title',
+            'content',
             'created_at',
         ],
         include: [

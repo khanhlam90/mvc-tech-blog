@@ -5,9 +5,9 @@ const { User, Post, Comment } = require('../../models');
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
-        })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
+    })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
@@ -67,6 +67,10 @@ router.post('/', (req, res) => {
             res.json(dbUserData);
         });
     })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 // this is for LOGIN
@@ -77,7 +81,7 @@ router.post('/login', (req, res) => {
         }
     }).then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No user with that username!' });
             return;
         }
 
@@ -95,6 +99,10 @@ router.post('/login', (req, res) => {
 
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 
